@@ -1,9 +1,19 @@
 :root {
-	--clr-base: #000;
-	--clr-att: #f00;
+	--clr-base: #03031C;
+	--clr-base-dark: #000000;
+	--clr-base-light: #333;
+	--clr-att: #2A64F9;
+	--clr-att-hover: #0030a9;
+	--clr-alert: #F81B1B;
+	--clr-light: #B4B4B4;
+	--clr-bg-dark: #242424;
+	--clr-bg-light: #F4F4F4;
+	--clr-border: #F4F4F4;
 
-	--min: 320px;
-	--max: 1200px;
+	--min: 375px;
+	--max: 1920px;
+    
+    --paddingContainer: 15px;
 
 	font-size: 10px;
 }
@@ -17,11 +27,18 @@
 			main styles
 \* ----------------------------------- */
 body {
-	color: var(--clr-base, #000);
+	color: var(--clr-base);
 	background: #fff;
+    font-size: 18px;
+    line-height: (27/18);
+	font-weight: 300;
 }
-p, ul, ol {
+b {
+	font-weight: 500;
+}
+p, ul, ol, table, blockquote, .bq-text {
 	position: relative;
+    margin-bottom: (27/18em);
 	img {
 		max-width: 100%;
 	}
@@ -29,24 +46,59 @@ p, ul, ol {
 		margin-bottom: 0 !important;
 	}
 }
-
 li {
 	position: relative;
 }
-a {
-	text-decoration: none;
-	color: var(--clr-att, #f00);
-	&:hover {
-		text-decoration: none;
-		color: var(--clr-att, #f00);
+ol {
+	counter-reset: li; 
+	list-style: none;
+	li {
+		position: relative;
+		margin-bottom: (27/18em);
+		&:before {
+			content: counter(li) '. '; 
+			counter-increment: li; 
+			border-radius: 0;
+			background-color: transparent;
+			display: inline;
+			margin: 0;
+			padding: 0;
+			position: static;
+			top: 0;
+			left: 0;
+			width: auto;
+			height: auto;
+			color: inherit;
+		}
 	}
 }
+.menu, .list {
+    margin: 0;
+    padding: 0;
+    li {
+        margin: 0;
+        padding: 0;
+        &:before {
+            display: none;
+        }
+    }
+}
+a {
+    text-decoration: none;
+    color: var(--clr-att);
+    &:hover {
+        text-decoration: none;
+        color: var(--clr-att-hover);
+    }
+}
 a.link-main, .link-main {
-	text-decoration: none;
-	border-bottom: 1px solid;
-	&:hover {
-		border-bottom: none;
-	}
+    text-decoration: none;
+    border-bottom: 1px solid;
+    &:hover {
+    }
+}
+.link-phone {
+    white-space: nowrap;
 }
 h1, .h1-title,
 h2, .h2-title,
@@ -56,7 +108,69 @@ h5, .h5-title,
 h6, .h6-title {
 	display: block;
 	position: relative;
+    font-weight: bold;
+    margin: 1em 0;
     &:first-child {
         margin-top: 0;
+    }
+}
+.h1-title, h1, .h2-title, h2, .h3-title, h3, .h4-title, h4 {
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: 24px;
+	letter-spacing: 1.2px;
+	line-height: normal;
+}
+.h3-title, h3,
+.h4-title, h4  {
+	font-size: 1em;
+	margin-bottom: (27/18em);
+	margin-top: (27/18em);
+	letter-spacing: normal;
+	line-height: inherit;
+}
+.h4-title, h4 {
+	text-transform: none;
+	margin: 0 0 5px 0;
+}
+.text-att, .title-att {
+    color: var(--clr-att);
+}
+.text-light, .title-light {
+    color: var(--clr-light);
+}
+.text-center, .title-center {
+    text-align: center;
+}
+@media (max-width: 1399px) {
+    :root {
+        font-size: 9.5px;
+    }
+}
+@media (max-width: 1199px) {
+    :root {
+        font-size: 9px;
+    }
+}
+@media (max-width: 1023px) {
+    :root {
+        font-size: 8px;
+    }
+}
+@media (max-width: 767px) {
+    :root {
+        font-size: 7px;
+    }
+}
+@media (min-width: 1024px) {
+    :root {
+    }
+	.h1-title, h1 {
+		font-size: 32px;
+		letter-spacing: 1.6px;
+	}
+}
+@media (min-width: 1400px) {
+    :root {
     }
 }
