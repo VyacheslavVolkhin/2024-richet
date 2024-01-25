@@ -575,6 +575,9 @@ body.popup-open {
 }
 .photo-slider-box {
 	margin-bottom: 8px;
+	.sl-inner-wrap {
+		overflow: visible;
+	}
 	.slider-wrap {
 		margin-left: calc(var(--paddingContainer) * -1);
 		margin-right: calc(var(--paddingContainer) * -1);
@@ -604,7 +607,6 @@ body.popup-open {
 		width: 100%;
 		display: flex;
 		position: relative;
-		overflow: hidden;
 		flex-direction: column;
 		justify-content: flex-end;
 		padding: 100px 10px 145px 32px;
@@ -633,14 +635,15 @@ body.popup-open {
 		justify-content: center;
 	}
 	.elm-photo {
+		width: 100dvw;
+		left: 50%;
+		right: auto;
+		margin-left: -50dvw;
 		position: absolute;
 		top: 0;
 		bottom: 0;
-		left: 0;
-		right: 0;
 		aspect-ratio: inherit;
 		height: 100%;
-		width: 100%;
 	}
 	.btn {
 		&.button-main {
@@ -1629,10 +1632,20 @@ body.popup-open {
 	}
 }
 @media (min-width: 1920px) {
-	.about-box {
+	.photo-slider-box {
+		.ico-arrow {
+			right: 50%;
+			left: auto;
+			margin-right: -225px;
+		}
+		.ico-arrow-next {
+			margin-right: -295px;
+		}
+	}
+	/* .about-box {
 		.elm-photo {
 			width: 1920px;
 			margin-left: -960px;
 		}
-	}
+	} */
 }

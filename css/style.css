@@ -2912,6 +2912,9 @@ body.popup-open {
 .photo-slider-box {
   margin-bottom: 8px;
 }
+.photo-slider-box .sl-inner-wrap {
+  overflow: visible;
+}
 .photo-slider-box .slider-wrap {
   margin-left: calc(var(--paddingContainer) * -1);
   margin-right: calc(var(--paddingContainer) * -1);
@@ -2943,7 +2946,6 @@ body.popup-open {
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  overflow: hidden;
   -ms-flex-direction: column;
       flex-direction: column;
   -ms-flex-pack: end;
@@ -2976,14 +2978,15 @@ body.popup-open {
       justify-content: center;
 }
 .photo-slider-box .elm-photo {
+  width: 100dvw;
+  left: 50%;
+  right: auto;
+  margin-left: -50dvw;
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
-  right: 0;
   aspect-ratio: inherit;
   height: 100%;
-  width: 100%;
 }
 .photo-slider-box .btn.button-main {
   padding: 0 30px;
@@ -3958,10 +3961,20 @@ body.popup-open {
   }
 }
 @media (min-width: 1920px) {
-  .about-box .elm-photo {
-    width: 1920px;
-    margin-left: -960px;
+  .photo-slider-box .ico-arrow {
+    right: 50%;
+    left: auto;
+    margin-right: -225px;
   }
+  .photo-slider-box .ico-arrow-next {
+    margin-right: -295px;
+  }
+  /* .about-box {
+		.elm-photo {
+			width: 1920px;
+			margin-left: -960px;
+		}
+	} */
 }
 /* ----------------------------------- *\
 			inputs elements styles
@@ -4682,6 +4695,9 @@ select.form-input:required:invalid {
 }
 .frm-main-search [placeholder]:-ms-input-placeholder {
   color: #B4B4B4;
+}
+body .fancybox-button[disabled] {
+  display: none;
 }
 body #swipebox-overlay {
   background-color: #fff;
