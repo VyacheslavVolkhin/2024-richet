@@ -236,7 +236,8 @@ body {
 .fav-show,
 .cart-show,
 .filter-show,
-.sort-show {
+.sort-show,
+.swipebox-html {
   overflow: hidden;
 }
 .cnt-full-wrap {
