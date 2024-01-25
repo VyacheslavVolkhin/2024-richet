@@ -281,7 +281,7 @@ html {
 	.btn-popup-toggle {
 		&:not(.active) {
 			&~.popup-content-block {
-				right: -110%;
+				right: -100%;
 				display: block;
 				pointer-events: none;
 			}
@@ -533,18 +533,8 @@ html {
     }
 }
 @media (max-width: 1023px) {
-	.wrap {
-		&:not(.wrap-mobile-header-top) {
-		}
-	}
-	.wrap-mobile-header-light {
+	.wrap-mobile-header-light:not(.header-fixed) {
 		.header {
-			.menu-main-wrap {
-				color: #fff;
-			}
-			.logo {
-				filter: brightness(0) invert(1);
-			}
 			.action-wrap {
 				.btn-action-ico {
 					&:before, &:after {
@@ -556,6 +546,16 @@ html {
 				.btn-popup-toggle {
 					filter: brightness(0) invert(1);
 				}
+			}
+		}
+	}
+	.wrap-mobile-header-light {
+		.header {
+			.menu-main-wrap {
+				color: #fff;
+			}
+			.logo {
+				filter: brightness(0) invert(1);
 			}
 		}
 	}
@@ -580,6 +580,22 @@ html {
     }
 	.search-show, .menu-show, .fav-show, .cart-show, .filter-show, .sort-show, .popup-open {
 		.wrap {
+			&.wrap-mobile-header-light {
+				.header {
+					.action-wrap {
+						.btn-action-ico {
+							&:after, &:before {
+								filter: none;
+							}
+							&:not(:hover) {
+								&:before {
+									filter: brightness(0) grayscale(1) opacity(0.8);
+								}
+							}
+						}
+					}
+				}
+			}
 			.header {
 				background: #fff;
 				.menu-main-wrap {
@@ -588,13 +604,7 @@ html {
 				.logo {
 					filter: none;
 				}
-				.action-wrap {
-					.btn-action-ico {
-						&:before, &:after {
-							filter: none;
-						}
-					}
-				}
+				
 				.popup-menu-wrap {
 					.btn-popup-toggle {
 						filter: none;
@@ -617,11 +627,7 @@ html {
 					filter: none;
 				}
 				.action-wrap {
-					.btn-action-ico {
-						&:before, &:after {
-							filter: none;
-						}
-					}
+					
 				}
 				.popup-menu-wrap {
 					.btn-popup-toggle {
@@ -696,8 +702,13 @@ html {
 				}
 				.action-wrap {
 					.btn-action-ico {
-						&:before, &:after {
+						&:after, &:before {
 							filter: none;
+						}
+						&:not(:hover) {
+							&:before {
+								filter: brightness(0) grayscale(1) opacity(0.8);
+							}
 						}
 					}
 				}

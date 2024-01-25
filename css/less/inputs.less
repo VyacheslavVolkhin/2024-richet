@@ -8,6 +8,7 @@
     text-overflow: ellipsis;
 	height: 58px;
 	border: none;
+	outline: none;
 	border-bottom: 1px solid var(--clr-light);
 	padding: 0 0 0 12px;
 	font-size: 18px;
@@ -368,7 +369,11 @@ select.form-input:required:invalid {
 			background-size: 48px auto;
         }
         &:hover {
+			opacity: 0.3;
         }
+		&.slick-disabled {
+			opacity: 0;
+		}
     }
     &.ico-arrow-prev {
         &:before {
@@ -386,6 +391,11 @@ select.form-input:required:invalid {
 		}
 	}
 	&.ico-fav {
+		&:not(:hover) {
+			&:before {
+				filter: brightness(0) grayscale(1) opacity(0.8);
+			}
+		}
 		&:before {
 			background-image: url(../img/icons/fav.svg);
 		}
@@ -404,6 +414,11 @@ select.form-input:required:invalid {
 		}
 	}
 	&.ico-cart {
+		&:not(:hover) {
+			&:before {
+				filter: brightness(0) grayscale(1) opacity(0.8);
+			}
+		}
 		&:before {
 			background-image: url(../img/icons/cart.svg);
 		}
@@ -422,6 +437,11 @@ select.form-input:required:invalid {
 		}
 	}
 	&.ico-search {
+		&:not(:hover) {
+			&:before {
+				filter: brightness(0) grayscale(1) opacity(0.8);
+			}
+		}
 		&:before {
 			background-image: url(../img/icons/search.svg);
 		}
@@ -440,6 +460,11 @@ select.form-input:required:invalid {
 		}
 	}
 	&.ico-menu {
+		&:not(:hover) {
+			&:before {
+				filter: brightness(0) grayscale(1) opacity(0.8);
+			}
+		}
 		&:before {
 			background-image: url(../img/icons/menu.svg);
 		}
