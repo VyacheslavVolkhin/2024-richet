@@ -183,6 +183,14 @@ body {
 			background-size: 24px auto;
 			top: 46px;
 			right: 43px;
+			overflow: visible;
+			&:before {
+				content: "";
+				display: block;
+				position: fixed;
+				top: 0;right: 0;left: 0;
+				height: 110px;
+			}
 		}
 		#swipebox-bottom-bar {
 			opacity: 1;

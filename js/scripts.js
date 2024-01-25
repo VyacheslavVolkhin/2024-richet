@@ -88,7 +88,12 @@ function popupElementsContentPositionClass() {
 }
 for (i = 0; i < togglePopupButtons.length; i++) {
 	togglePopupButtons[i].addEventListener('click', function (e) {
-		sTopMain();
+		if (this.closest('.header')) {
+			sTopMain();
+		}
+		if (this.closest('.popup-filter-wrap')) {
+			sTopMain();
+		}
 		popupClose();
 		popupElementsClear()
 		if (this.classList.contains('active')) {
@@ -187,11 +192,63 @@ for (i = 0;i < tglButtons.length;i++) {
 $(document).ready(function(){
 	//scroll top
 	function sTop() {
-		$("html,body").animate({scrollTop:0},"100");return false;
+		$("html,body").animate({scrollTop:0},0);return false;
 	}
+
+
+	if (!!$('header').offset()) {
+		var stickyTop = $('header').offset().top;
+		$(window).scroll(function(){
+			var windowTop = $(window).scrollTop();
+			if ($('.card-box').length > 0) {
+				let cardTop = $('.card-box .photos-inner-wrap').outerHeight() - 70
+				if (windowTop > cardTop){
+					$('.wrap').addClass('header-fixed');
+				}
+				else {
+					$('.wrap').removeClass('header-fixed');
+				}
+				return false
+			}
+			if ($('.photo-slider-box').length > 0) {
+				let cardTop = $('.photo-slider-box').outerHeight() - 70
+				if (windowTop > cardTop){
+					$('.wrap').addClass('header-fixed');
+				}
+				else {
+					$('.wrap').removeClass('header-fixed');
+				}
+				return false
+			}
+			if (windowTop > 0){
+				$('.wrap').addClass('header-fixed');
+			}
+			else {
+				$('.wrap').removeClass('header-fixed');
+			}
+		});
+	}
+
+	//question
+	$('.item-tile-question').each(function() {
+		if ($(this).find('.btn-popup').hasClass('active')) {
+			$(this).find('.popup-content-block').slideDown(200)
+		}
+	})
+	$('.item-tile-question .btn-popup').on('click', function() {
+		if ($(this).hasClass('active')) {
+			$(this).removeClass('active').next('.popup-content-block').slideUp(200)
+		} else {
+			$(this).addClass('active').next('.popup-content-block').slideDown(200)
+		}
+		return false;
+	})
 
 	//swipebox
 	if (!!$('[data-swipebox]').offset()) {
+		$('[data-swipebox').on('click', function() {
+			sTop();
+		})
 		$('[data-swipebox]').swipebox();
 	}
 
